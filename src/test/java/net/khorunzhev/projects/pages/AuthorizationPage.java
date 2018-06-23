@@ -5,11 +5,7 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by khorunzhev on 22.06.2018.
@@ -36,6 +32,11 @@ public class AuthorizationPage extends PageObject {
     }
 
     public void loginToMail(String login, String password) {
+        // getDriver().navigate().refresh() добавлен из-за проблем с загрузкой Js при старте и многочисленных ошибок в консоле
+        // Без refresh не нажималась кнопка Войти
+        // Различные wait и javascriptExecutor не спасают.
+        // Различные версии chromeWebDriver тоже не помогают
+        // Возможно что проблема специфична для mac os.
         getDriver().navigate().refresh();
         loginInput.type(login);
         passwordInput.type(password);

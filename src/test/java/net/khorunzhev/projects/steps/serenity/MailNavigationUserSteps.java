@@ -8,8 +8,6 @@ import net.khorunzhev.projects.pages.mail.SendStatusPage;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getPages;
-
 /**
  * Created by khorunzhev on 22.06.2018.
  */
