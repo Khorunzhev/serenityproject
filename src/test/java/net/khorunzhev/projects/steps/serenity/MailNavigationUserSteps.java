@@ -22,33 +22,34 @@ public class MailNavigationUserSteps {
     SendStatusPage sendStatusPage;
 
 
-    @Step
+    @Step("Дано Пользователь находится на странице авторизации mail.ru ")
     public void userOpenAutorizationPage() {
         authorizationPage.open();
         authorizationPage.checkLoginButtonIsVisible();
     }
 
-    @Step
+    @Step("Когда пользователь авторизовывается с логином {0} и паролем {1}")
     public void userAuthorized(String login, String password) {
         authorizationPage.loginToMail(login, password);
         Assert.assertTrue(inboxMailPage.isUserAutorized(login));
     }
 
-    @Step
+    @Step("То открывается страница авторизации")
     public void mainMailPageOpen() {
         inboxMailPage.checkThatInboxMailPageOpen();
     }
 
-    @Step
+    @Step("Когда пользователь нажимает написать письмо")
     public void userClickWriteMailButton() {
         inboxMailPage.clickComposeMailButton();
     }
 
+    @Step("То открывается страница авторизации")
     public void composeMailPageOpen() {
         composeMailPage.checkThatComposeMailPageOpen();
     }
 
-    @Step
+    @Step("Когда пользователь создает письмо с адресатом {0}, заголовком {1}, текстом {2} и файлом {3}")
     public void userCreateMail(String toWhom, String title, String mailText, String fileLocation) {
         composeMailPage.setToWhomInput(toWhom);
         composeMailPage.setTitleInput(title);
@@ -56,17 +57,18 @@ public class MailNavigationUserSteps {
         composeMailPage.uploadFile(fileLocation);
     }
 
-    @Step
+    @Step("И нажимает отправить")
     public void clickSendButton() {
         composeMailPage.clickMailSendButton();
     }
 
-    @Step
+    @Step("То открывается страница с успешным статусом отправления")
     public void mailSuccessfullySent() {
+        sendStatusPage.checkThatSendStatusMailPageOpen();
         Assert.assertTrue(sendStatusPage.iSMailSent());
     }
 
-    @Step
+    @Step("И письмо с заголовком {0} отображается в списке отправленных")
     public void mailDiplayedInSendPage(String title) {
         composeMailPage.goToOutBoxList();
         sendMailPage.checkThatSendMailPageOpen();
