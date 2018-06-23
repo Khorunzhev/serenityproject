@@ -32,8 +32,8 @@ public class MainMailPage extends PageObject {
         composeMailButton.click();
     }
 
-    public void isMainMailPageOpen() {
-        Assert.assertEquals(userEmailLabel.getText(), "autotestsmr@mail.ru");
+    public boolean isUserAutorized(String login) {
+       return userEmailLabel.waitUntilPresent().getText().equals(login + "@mail.ru");
     }
 
     public void goToOutBoxList() {

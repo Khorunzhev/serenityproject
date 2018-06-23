@@ -98,6 +98,6 @@ public class SendMailStory {
         mailNavigationSteps.mailSuccessfullySent();
 
         //And
-        mailNavigationSteps.mailDiplayedInSendSection(title);
+        mailNavigationSteps.mailDiplayedInSendPage(title);
     }
 }

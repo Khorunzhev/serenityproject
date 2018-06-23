@@ -3,6 +3,7 @@ package net.khorunzhev.projects.pages.mail;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.At;
 import org.openqa.selenium.ElementNotSelectableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +11,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getPages;
+
 /**
  * Created by khorunzhev on 22.06.2018.
  */
+@At("https://e.mail.ru/compose/*")
 public class ComposeMailPage extends MainMailPage {
 
     @FindBy(xpath="//textarea[@data-original-name='To']")
@@ -30,6 +34,11 @@ public class ComposeMailPage extends MainMailPage {
 
     public ComposeMailPage(WebDriver driver){
         super(driver);
+    }
+
+    public void checkThatComposeMailPageOpen() {
+        getPages().currentPageAt(this.getClass());
+        checkMailActionsList(new String[]{"Отправить", "Сохранить", "Отмена"});
     }
 
     public void checkActionsOnComposePage(String[] actions){

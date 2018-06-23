@@ -8,6 +8,8 @@ import net.khorunzhev.projects.pages.mail.SendStatusPage;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getPages;
+
 /**
  * Created by khorunzhev on 22.06.2018.
  */
@@ -29,12 +31,12 @@ public class MailNavigationUserSteps {
     @Step
     public void userAuthorized(String login, String password) {
         authorizationPage.loginToMail(login, password);
+        Assert.assertTrue(inboxMailPage.isUserAutorized(login));
     }
 
     @Step
     public void mainMailPageOpen() {
-        inboxMailPage.isMainMailPageOpen();
-        inboxMailPage.checkActionsOnInboxPage(new String[]{"Удалить", "Спам", "Переместить", "Ещё"});
+        inboxMailPage.checkThatInboxMailPageOpen();
     }
 
     @Step
@@ -43,7 +45,7 @@ public class MailNavigationUserSteps {
     }
 
     public void composeMailPageOpen() {
-        composeMailPage.checkActionsOnComposePage(new String[]{"Отправить", "Сохранить", "Отмена"});
+        composeMailPage.checkThatComposeMailPageOpen();
     }
 
     @Step
@@ -65,10 +67,9 @@ public class MailNavigationUserSteps {
     }
 
     @Step
-    public void mailDiplayedInSendSection(String title) {
+    public void mailDiplayedInSendPage(String title) {
         composeMailPage.goToOutBoxList();
+        sendMailPage.checkThatSendMailPageOpen();
         sendMailPage.checkFirstElementInMailList(title);
-
-
     }
 }

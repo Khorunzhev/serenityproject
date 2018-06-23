@@ -36,7 +36,7 @@ public class AuthorizationPage extends PageObject {
     }
 
     public void loginToMail(String login, String password) {
-        //getDriver().navigate().refresh();
+        getDriver().navigate().refresh();
         loginInput.type(login);
         passwordInput.type(password);
         autorizationSubmitButton.click();

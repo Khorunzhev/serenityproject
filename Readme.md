@@ -11,7 +11,7 @@
 * У вас установлена Java начиная от 8 версии
 * У вас установлен maven
 * В файле serenity.properties полю webdriver.chrome.driver установлен путь до chromedriver-a совместимого с вашей ОС.
-Изначально webdriver.chrome.driver установлена для запуска на MAC OS.
+Изначально в поле webdriver.chrome.driver установлен driver для запуска на MAC OS.
 Версия chromedriver для windows лежит в папке webdrivers.
 
 ## Запуск тестов
@@ -42,5 +42,5 @@ mvn clean verify -Dtags="sendMailStory"
 * Title - Заголовок письма
 * MailText - Тект тела письма
 * FileLocation - Пусть до файла, который прикрепляется как вложение к письму.
-Путь относительный от папки resources. Пример: "mailtestfiles/test.txt"
+Путь относительный от папки resources. Пример: "mailtestfiles/test.txt".
 Каждая новая строчка в файле maildata.csv - это новый набор тестовых данных.
