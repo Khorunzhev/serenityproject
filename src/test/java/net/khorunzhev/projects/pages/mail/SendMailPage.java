@@ -3,6 +3,7 @@ package net.khorunzhev.projects.pages.mail;
 import net.thucydides.core.annotations.At;
 import org.openqa.selenium.WebDriver;
 
+import static net.khorunzhev.projects.support.MailPagesStrings.*;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getPages;
 
 /**
@@ -17,7 +18,7 @@ public class SendMailPage extends MainMailPage {
 
     public void checkThatSendMailPageOpen() {
         getPages().currentPageAt(this.getClass());
-        checkMailActionsList(new String[]{"Удалить", "Спам", "Переместить", "Ещё"});
+        checkMailActionsList(new String[]{deleteButtonText, spamButtonText, moveToButtonText, moreButtonText});
     }
 
 }

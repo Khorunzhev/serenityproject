@@ -1,5 +1,6 @@
 package net.khorunzhev.projects.pages.mail;
 
+import static net.khorunzhev.projects.support.MailPagesStrings.*;
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -38,11 +39,7 @@ public class ComposeMailPage extends MainMailPage {
 
     public void checkThatComposeMailPageOpen() {
         getPages().currentPageAt(this.getClass());
-        checkMailActionsList(new String[]{"Отправить", "Сохранить", "Отмена"});
-    }
-
-    public void checkActionsOnComposePage(String[] actions){
-        checkMailActionsList(actions);
+        checkMailActionsList(new String[]{sendButtonText, saveButtonText, cancleButtonText});
     }
 
     public void setToWhomInput(String toWhomText){
