@@ -41,13 +41,13 @@ mvn clean verify -Dtags="sendMailStory"
 * Password - пароль с которым пользователь авторизуется в mail.ru
 * ToWhom - адрес на который отправляется письмо
 * Title - Заголовок письма
-* MailText - Тект тела письма
-* FileLocation - Пусть до файла, который прикрепляется как вложение к письму.
-Путь относительный от папки resources. Пример: "mailtestfiles/test.txt".
+* MailText - Текcт тела письма
+* FileLocation - Путь до файла, который прикрепляется вложением к письму.
+Путь строится относительно папки resources. Пример: "mailtestfiles/test.txt".
 
 ### Особенности работы
 getDriver().navigate().refresh() в методе loginToMail добавлен из-за проблем с загрузкой Js и многочисленных ошибок в консоле при старте драйвера.
 Без refresh не нажималась кнопка Войти.
 Различные wait и javascriptExecutor при этом не спасают.
-Различные версии chromeWebDriver тоже не помогают
+Различные версии chromeWebDriver тоже не помогают.
 Возможно что проблема специфична для mac os.
