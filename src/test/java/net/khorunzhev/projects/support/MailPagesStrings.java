@@ -13,4 +13,6 @@ public class MailPagesStrings {
     public final static String spamButtonText = "Спам";
     public final static String moveToButtonText = "Переместить";
     public final static String moreButtonText = "Ещё";
+
+    //test-feature
 }
